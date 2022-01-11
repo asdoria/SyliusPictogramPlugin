@@ -1,0 +1,17 @@
+Asdoria\SyliusPictogramPlugin\Entity\Pictogram:
+    exclusion_policy: ALL
+    xml_root_name: pictogram
+    properties:
+        id:
+            expose: true
+            type: integer
+            xml_attribute: true
+            groups: [Default, Detailed, Autocomplete]
+        translations:
+            expose: true
+            type: array
+            groups: [Default, Detailed]
+    virtual_properties:
+        getName:
+            serialized_name: name
+            groups: [Default, Detailed, DetailedCart, Autocomplete]

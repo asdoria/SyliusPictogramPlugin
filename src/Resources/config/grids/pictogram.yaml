@@ -1,0 +1,56 @@
+sylius_grid:
+    grids:
+        sylius_admin_pictogram:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: '%asdoria.model.pictogram.class%'
+                    repository:
+                        method: createQueryBuilderByPictogramGroupId
+                        arguments: ["%locale%", $pictogramGroupId]
+            sorting:
+                position: asc
+            fields:
+                image:
+                    type: twig
+                    label: sylius.ui.image
+                    path: .
+                    options:
+                        template: "@AsdoriaSyliusPictogramPlugin/Grid/Field/pictogram_image.html.twig"
+                code:
+                    type: string
+                    label: sylius.ui.code
+                name:
+                    type: string
+                    label: sylius.ui.name
+                    sortable: translations.name
+                pictogramGroup:
+                    type: twig
+                    label: asdoria.ui.pictogram_group
+                    sortable: pictogramGroup
+                    options:
+                        template: "@AsdoriaSyliusPictogramPlugin/Grid/Field/pictogram_group.html.twig"
+                position:
+                    type: twig
+                    label: sylius.ui.position
+                    path: .
+                    sortable: position
+                    options:
+                        template: "@AsdoriaSyliusPictogramPlugin/Grid/Field/pictogram_position.html.twig"
+            actions:
+                main:
+                    create:
+                        type: create
+                    update_positions:
+                        type: update_product_variant_positions
+                item:
+                    update:
+                        type: update
+                    delete:
+                        type: delete
+            filters:
+                search:
+                    type: string
+                    label: sylius.ui.search
+                    options:
+                        fields: [translations.name]

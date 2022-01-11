@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:gedmo="http://gediminasm.org/schemas/orm/doctrine-extensions-mapping">
+
+    <mapped-superclass name="Asdoria\SyliusPictogramPlugin\Entity\PictogramGroup" table="asdoria_pictogram_group">
+        <id name="id" column="id" type="integer">
+            <generator strategy="AUTO" />
+        </id>
+        <field name="code" column="code" type="string" unique="true"/>
+        <one-to-many field="pictograms" target-entity="Asdoria\SyliusPictogramPlugin\Model\PictogramInterface" mapped-by="pictogramGroup">
+            <cascade>
+                <cascade-remove/>
+            </cascade>
+        </one-to-many>
+        <field name="position" type="integer">
+            <gedmo:sortable-position />
+        </field>
+    </mapped-superclass>
+
+</doctrine-mapping>

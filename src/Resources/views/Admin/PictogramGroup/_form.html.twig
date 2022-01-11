@@ -1,0 +1,8 @@
+{% form_theme form '@SyliusAdmin/Form/imagesTheme.html.twig' %}
+{% from '@SyliusAdmin/Macro/translationForm.html.twig' import translationForm %}
+
+{{ form_errors(form) }}
+<div class="ui segment">
+    {{ form_row(form.code) }}
+    {{ translationForm(form.translations) }}
+</div>

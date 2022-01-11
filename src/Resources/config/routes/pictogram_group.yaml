@@ -1,0 +1,17 @@
+asdoria_admin_pictogram_group_pictograms:
+    resource: "pictogram_group_pictograms.yaml"
+
+asdoria_admin_pictogram_group:
+    resource: |
+        alias: asdoria.pictogram_group
+        section: admin
+        templates: "@SyliusAdmin\\Crud"
+        except: ['show']
+        redirect: index
+        grid: asdoria_admin_pictogram_group
+        permission: true
+        vars:
+           all:
+             templates:
+                form: '@AsdoriaSyliusPictogramPlugin/Admin/PictogramGroup/_form.html.twig'
+    type: sylius.resource

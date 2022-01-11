@@ -1,0 +1,10 @@
+services:
+    asdoria_pictogram.listener.admin.menu_builder:
+       class: Asdoria\SyliusPictogramPlugin\Menu\AdminMenuListener
+       tags:
+           - { name: kernel.event_listener, event: sylius.menu.admin.main, method: addAdminMenuItems }
+
+    asdoria_pictogram.listener.admin.product_form_menu_builder:
+        class: Asdoria\SyliusPictogramPlugin\Menu\AdminProductFormMenuListener
+        tags:
+            - { name: kernel.event_listener, event: sylius.menu.admin.product.form, method: "addItems" }

@@ -1,0 +1,12 @@
+{% import '@SyliusAdmin/Macro/breadcrumb.html.twig' as breadcrumb %}
+
+{% set breadcrumbs = [
+        { label: 'sylius.ui.administration'|trans, url: path('sylius_admin_dashboard') },
+        { label: 'asdoria.ui.pictogram_groups'|trans , url: path('asdoria_admin_pictogram_group_index')},
+        { label: resource.pictogramGroup.name, url: path('asdoria_admin_pictogram_group_update', {'id': resource.pictogramGroup.id}) },
+        { label: 'asdoria.ui.pictograms'|trans, url: path('asdoria_admin_pictogram_group_pictograms_index', {'pictogramGroupId': resource.pictogramGroup.id}) },
+        { label: 'asdoria.ui.new_pictogram'|trans },
+    ]
+%}
+
+{{ breadcrumb.crumble(breadcrumbs) }}

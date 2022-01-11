@@ -1,0 +1,71 @@
+sylius_grid:
+    grids:
+        asdoria_admin_pictogram_group_pictograms:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: Asdoria\SyliusPictogramPlugin\Entity\Pictogram
+                    repository:
+                        method: createListQueryBuilder
+                        arguments: [$pictogramGroupId]
+            fields:
+                image:
+                    type: twig
+                    label: sylius.ui.image
+                    path: .
+                    options:
+                        template: "@AsdoriaSyliusPictogramPlugin/Grid/Field/pictogram_image.html.twig"
+                code:
+                    type: string
+                    label: sylius.ui.code
+                name:
+                    type: string
+                    label: sylius.ui.name
+                    sortable: translations.name
+                pictogramGroup:
+                    type: twig
+                    label: asdoria.ui.pictogram_group
+                    sortable: pictogramGroup
+                    options:
+                        template: "@AsdoriaSyliusPictogramPlugin/Grid/Field/pictogram_group.html.twig"
+                position:
+                    type: twig
+                    label: sylius.ui.position
+                    path: .
+                    sortable: position
+                    options:
+                        template: "@AsdoriaSyliusPictogramPlugin/Grid/Field/pictogram_position.html.twig"
+            actions:
+                main:
+                    create:
+                        type: create
+                        options:
+                            link:
+                                route: asdoria_admin_pictogram_group_pictograms_create
+                                parameters:
+                                    pictogramGroupId: $pictogramGroupId
+                    update_positions:
+                        type: update_pictogram_positions
+                item:
+                    update:
+                        type: update
+                        options:
+                            link:
+                                route: asdoria_admin_pictogram_group_pictograms_update
+                                parameters:
+                                    id: resource.id
+                                    pictogramGroupId: $pictogramGroupId
+                    delete:
+                        type: delete
+                        options:
+                            link:
+                                route: asdoria_admin_pictogram_group_pictograms_delete
+                                parameters:
+                                    id: resource.id
+                                    pictogramGroupId: $pictogramGroupId
+            filters:
+                search:
+                    type: string
+                    label: sylius.ui.search
+                    options:
+                        fields: [translations.name]

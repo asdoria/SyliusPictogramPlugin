@@ -1,0 +1,4 @@
+suites:
+    main:
+        namespace: Asdoria\SyliusPictogramPlugin
+        psr4_prefix: Asdoria\SyliusPictogramPlugin

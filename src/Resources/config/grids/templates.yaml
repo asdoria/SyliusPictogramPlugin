@@ -1,0 +1,5 @@
+sylius_grid:
+    templates:
+        action:
+            pictogram: '@AsdoriaSyliusPictogramPlugin/Grid/Action/pictogram.html.twig'
+            update_pictogram_positions: "@AsdoriaSyliusPictogramPlugin/Grid/Action/updatePositions.html.twig"

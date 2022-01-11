@@ -1,0 +1,6 @@
+
+services:
+    app.form.extension.type.product:
+        class: Asdoria\SyliusPictogramPlugin\Form\Extension\ProductTypeExtension
+        tags:
+            - { name : form.type_extension, extended_type: Sylius\Bundle\ProductBundle\Form\Type\ProductType, priority: -128 }

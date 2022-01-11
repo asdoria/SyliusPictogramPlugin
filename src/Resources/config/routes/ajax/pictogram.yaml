@@ -1,0 +1,48 @@
+asdoria_admin_ajax_pictogram_by_phrase:
+    path: /search
+    methods: [GET]
+    defaults:
+        _controller: asdoria.controller.pictogram:indexAction
+        _format: json
+        _sylius:
+            serialization_groups: [Autocomplete]
+            permission: true
+            repository:
+                method: findByPhrase
+                arguments:
+                    phrase: $phrase
+                    locale: "expr:service('sylius.context.locale').getLocaleCode()"
+
+asdoria_admin_ajax_pictogram_by_ids:
+    path: /
+    methods: [GET]
+    defaults:
+        _controller: asdoria.controller.pictogram:indexAction
+        _format: json
+        _sylius:
+            serialization_groups: [Autocomplete]
+            permission: true
+            repository:
+                method: findById
+                arguments: [$id]
+
+
+
+asdoria_admin_ajax_pictogram_search:
+    path: /find
+    methods: [GET]
+    defaults:
+        _controller: asdoria.controller.pictogram:indexAction
+        _format: json
+        _sylius:
+            permission: true
+            grid: sylius_admin_ajax_pictogram
+
+asdoria_admin_ajax_pictograms_update_position:
+    path: /update
+    methods: [PUT]
+    defaults:
+        _controller: asdoria.controller.pictogram:updatePositionsAction
+        _format: json
+        _sylius:
+            permission: true

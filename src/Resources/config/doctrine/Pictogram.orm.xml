@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:gedmo="http://gediminasm.org/schemas/orm/doctrine-extensions-mapping">
+
+    <mapped-superclass name="Asdoria\SyliusPictogramPlugin\Entity\Pictogram" table="asdoria_pictogram"   >
+        <id name="id" column="id" type="integer">
+            <generator strategy="AUTO" />
+        </id>
+        <unique-constraints>
+            <unique-constraint columns="pictogram_group_id,code" />
+        </unique-constraints>
+        <field name="code" column="code" type="string" />
+        <one-to-one field="image" target-entity="Asdoria\SyliusPictogramPlugin\Model\PictogramImageInterface" mapped-by="owner" >
+            <cascade>
+                <cascade-all/>
+            </cascade>
+        </one-to-one>
+        <many-to-one field="pictogramGroup" target-entity="Asdoria\SyliusPictogramPlugin\Model\PictogramGroupInterface"  inversed-by="pictograms" >
+            <join-column name="pictogram_group_id" referenced-column-name="id" nullable="false" />
+            <gedmo:sortable-group />
+        </many-to-one>
+        <many-to-many field="products" target-entity="Sylius\Component\Core\Model\ProductInterface" mapped-by="pictograms" orphan-removal="true">
+            <cascade>
+                <cascade-all/>
+            </cascade>
+        </many-to-many>
+        <field name="position" type="integer">
+            <gedmo:sortable-position />
+        </field>
+
+<!--        <many-to-many field="products" mapped-by="pictograms" target-entity="App\Model\Product\ProductInterface"/>-->
+    </mapped-superclass>
+
+</doctrine-mapping>

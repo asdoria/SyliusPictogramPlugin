@@ -1,0 +1,7 @@
+services:
+    asdoria_pictogram.twig_extension.pictogram:
+        class: Asdoria\SyliusPictogramPlugin\Twig\PictogramExtension
+        arguments:
+            - '@asdoria.repository.pictogram'
+        tags:
+            - { name: twig.extension }

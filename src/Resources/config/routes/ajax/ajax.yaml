@@ -1,0 +1,3 @@
+sylius_admin_ajax_pictogram:
+    resource: "pictogram.yaml"
+    prefix: /pictograms/app

@@ -1,0 +1,15 @@
+{% form_theme form '@AsdoriaPictogram/Form/imagesTheme.html.twig' %}
+{% from '@SyliusAdmin/Macro/translationForm.html.twig' import translationForm %}
+
+{{ form_errors(form) }}
+<div class="ui segment">
+    {{ form_row(form.code) }}
+    {{ form_row(form.pictogramGroup) }}
+    <div class="field">
+        {{ translationForm(form.translations) }}
+    </div>
+    <div class="field" id="sylius_pictogram_image">
+        <label class="required"> {{ 'sylius.ui.image'|trans }}</label>
+        {{ form_widget(form.image, {'label': false}) }}
+    </div>
+</div>

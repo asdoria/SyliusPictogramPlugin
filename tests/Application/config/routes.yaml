@@ -1,0 +1,9 @@
+acme_sylius_example_shop:
+    resource: "@AsdoriaSyliusPictogramPlugin/Resources/config/routing.yaml"
+    prefix: /{_locale}
+    requirements:
+        _locale: ^[a-z]{2}(?:_[A-Z]{2})?$
+
+acme_sylius_example_admin:
+    resource: "@AsdoriaSyliusPictogramPlugin/Resources/config/admin_routing.yml"
+    prefix: /admin

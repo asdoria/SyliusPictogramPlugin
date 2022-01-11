@@ -1,0 +1,31 @@
+imports:
+    - "@AsdoriaSyliusPictogramPlugin/Resources/config/grids/*.yaml"
+
+doctrine:
+    orm:
+        resolve_target_entities:
+            Asdoria\SyliusPictogramPlugin\Model\PictogramGroupInterface: Asdoria\SyliusPictogramPlugin\Entity\PictogramGroup
+            Asdoria\SyliusPictogramPlugin\Model\PictogramGroupTranslationInterface: Asdoria\SyliusPictogramPlugin\Entity\PictogramGroupTranslation
+            Asdoria\SyliusPictogramPlugin\Model\PictogramInterface: Asdoria\SyliusPictogramPlugin\Entity\Pictogram
+            Asdoria\SyliusPictogramPlugin\Model\PictogramTranslationInterface: Asdoria\SyliusPictogramPlugin\Entity\PictogramTranslation
+            Asdoria\SyliusPictogramPlugin\Model\PictogramImageInterface: Asdoria\SyliusPictogramPlugin\Entity\PictogramImage
+
+liip_imagine:
+    filter_sets:
+        sylius_admin_pictogram_thumbnail:
+            quality: 70
+            filters:
+                thumbnail:
+                    size: [ 50, 50 ]
+                    mode: outbound
+        sylius_shop_pictogram_thumbnail:
+            quality: 70
+            filters:
+                thumbnail:
+                    size: [ 85, 85 ]
+jms_serializer:
+    metadata:
+        directories:
+            asdoria-pictogram:
+                namespace_prefix: "Asdoria\\SyliusPictogramPlugin\\PictogramBundle\\Entity"
+                path: "@AsdoriaSyliusPictogramPlugin/Resources/config/serializer"

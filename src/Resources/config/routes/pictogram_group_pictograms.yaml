@@ -1,0 +1,87 @@
+asdoria_admin_pictogram_group_pictograms_index:
+    path: /pictogram-groups/{pictogramGroupId}/pictograms
+    methods: [GET]
+    defaults:
+        _controller: asdoria.controller.pictogram:indexAction
+        _sylius:
+            grid: asdoria_admin_pictogram_group_pictograms
+            vars:
+                pictogramGroup: expr:notFoundOnNull(service('asdoria.repository.pictogram_group').find($pictogramGroupId))
+                templates:
+                    breadcrumb: "@AsdoriaSyliusPictogramPlugin/Admin/PictogramGroup/Pictograms/Crud/Index/_breadcrumb.html.twig"
+                route:
+                    parameters:
+                        pictogramGroupId: $pictogramGroupId
+            section: admin
+            template: '@SyliusAdmin/Crud/index.html.twig'
+
+asdoria_admin_pictogram_group_pictograms_create:
+    path: /pictogram-groups/{pictogramGroupId}/pictograms/new
+    methods: [GET, POST]
+    defaults:
+        _controller: asdoria.controller.pictogram:createAction
+        _sylius:
+            redirect:
+                route: asdoria_admin_pictogram_group_pictograms_index
+                parameters:
+                    pictogramGroupId: $pictogramGroupId
+            section: admin
+            template: '@AsdoriaSyliusPictogramPlugin/Admin/PictogramGroup/Pictograms/Crud/create.html.twig'
+            factory:
+                method: createForPictogramGroup
+                arguments:
+                    - expr:notFoundOnNull(service('asdoria.repository.pictogram_group').find($pictogramGroupId))
+            form:
+                type: Asdoria\SyliusPictogramPlugin\Form\Type\PictogramType
+                options:
+                    validation_groups:
+                        - sylius
+            vars:
+                route:
+                    name: asdoria_admin_pictogram_group_pictograms_create
+                    parameters:
+                        pictogramGroupId: $pictogramGroupId
+                templates:
+                    form: '@AsdoriaSyliusPictogramPlugin/Admin/Pictogram/_form.html.twig'
+
+asdoria_admin_pictogram_group_pictograms_update:
+    path: /pictogram-groups/{pictogramGroupId}/pictograms/{id}/edit
+    methods: [GET, PUT]
+    defaults:
+        _controller: asdoria.controller.pictogram:updateAction
+        _sylius:
+            redirect:
+                route: asdoria_admin_pictogram_group_pictograms_index
+                parameters:
+                    pictogramGroupId: $pictogramGroupId
+            section: admin
+            template: '@AsdoriaSyliusPictogramPlugin/Admin/PictogramGroup/Pictograms/Crud/update.html.twig'
+            form:
+                type: Asdoria\SyliusPictogramPlugin\Form\Type\PictogramType
+                options:
+                    validation_groups:
+                        - sylius
+            vars:
+                route:
+                    name: asdoria_admin_pictogram_group_pictograms_update
+                    parameters:
+                        pictogramGroupId: $pictogramGroupId
+                        id: $id
+                templates:
+                    form: '@AsdoriaSyliusPictogramPlugin/Admin/Pictogram/_form.html.twig'
+
+asdoria_admin_pictogram_group_pictograms_delete:
+    path: /pictogram-groups/{pictogramGroupId}/pictograms/{id}
+    methods: [DELETE]
+    defaults:
+        _controller: asdoria.controller.pictogram:deleteAction
+        _sylius:
+            redirect:
+                route: asdoria_admin_pictogram_group_pictograms_index
+                parameters:
+                    pictogramGroupId: $pictogramGroupId
+            section: admin
+            vars:
+                route:
+                    parameters:
+                        pictogramGroupId: $pictogramGroupId

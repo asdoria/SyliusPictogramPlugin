@@ -17,7 +17,7 @@ final class AdminProductFormMenuListener
 
         $menu
             ->addChild('pictograms')
-            ->setAttribute('template', '@AsdoriaPictogram/Admin/Product/_pictograms.html.twig')
+            ->setAttribute('template', '@AsdoriaSyliusPictogramPlugin/Admin/Product/_pictograms.html.twig')
             ->setLabel('asdoria.ui.pictograms')
         ;
     }

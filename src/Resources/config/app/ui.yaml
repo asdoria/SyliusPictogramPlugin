@@ -3,20 +3,20 @@ sylius_ui:
         sylius.admin.product.update.javascripts:
             blocks:
                 scripts:
-                    template: "@AsdoriaPictogram/Admin/Product/_javascripts.html.twig"
+                    template: "@AsdoriaSyliusPictogramPlugin/Admin/Product/_javascripts.html.twig"
                     priority: 10
         sylius.admin.product.create.javascripts:
             blocks:
                 scripts:
-                    template: "@AsdoriaPictogram/Admin/Product/_javascripts.html.twig"
+                    template: "@AsdoriaSyliusPictogramPlugin/Admin/Product/_javascripts.html.twig"
                     priority: 10
         sylius.admin.product.update.stylesheets:
             blocks:
                 scripts:
-                    template: "@AsdoriaPictogram/Admin/Product/_stylesheets.html.twig"
+                    template: "@AsdoriaSyliusPictogramPlugin/Admin/Product/_stylesheets.html.twig"
                     priority: 10
         sylius.admin.product.create.stylesheets:
             blocks:
                 scripts:
-                    template: "@AsdoriaPictogram/Admin/Product/_stylesheets.html.twig"
+                    template: "@AsdoriaSyliusPictogramPlugin/Admin/Product/_stylesheets.html.twig"
                     priority: 10

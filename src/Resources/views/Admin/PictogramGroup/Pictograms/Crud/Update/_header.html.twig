@@ -1,7 +1,7 @@
 <div class="ui stackable two column grid">
     <div class="column">
         {% include configuration.vars.templates.header_title|default('@SyliusAdmin/Crud/Update/_headerTitle.html.twig') %}
-        {% include configuration.vars.templates.breadcrumb|default('@AsdoriaPictogram/Admin/PictogramGroup/Pictograms/Crud/Update/_breadcrumb.html.twig') %}
+        {% include configuration.vars.templates.breadcrumb|default('@AsdoriaSyliusPictogramPlugin/Admin/PictogramGroup/Pictograms/Crud/Update/_breadcrumb.html.twig') %}
 
         {{ sonata_block_render_event(event_prefix ~ '.header', {'resource': resource}) }}
     </div>

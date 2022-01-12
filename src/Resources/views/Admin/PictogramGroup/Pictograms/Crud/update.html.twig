@@ -10,11 +10,11 @@
 {% block content %}
 {{ sonata_block_render_event(event_prefix ~ '.before_header', {'resource': resource}) }}
 
-{% include '@AsdoriaPictogram/Admin/PictogramGroup/Pictograms/Crud/Update/_header.html.twig' %}
+{% include '@AsdoriaSyliusPictogramPlugin/Admin/PictogramGroup/Pictograms/Crud/Update/_header.html.twig' %}
 
 {{ sonata_block_render_event(event_prefix ~ '.after_header', {'resource': resource}) }}
 
-{% include '@AsdoriaPictogram/Admin/PictogramGroup/Pictograms/Crud/Update/_content.html.twig' %}
+{% include '@AsdoriaSyliusPictogramPlugin/Admin/PictogramGroup/Pictograms/Crud/Update/_content.html.twig' %}
 
 {{ sonata_block_render_event(event_prefix ~ '.after_content', {'resource': resource}) }}
 {% endblock %}

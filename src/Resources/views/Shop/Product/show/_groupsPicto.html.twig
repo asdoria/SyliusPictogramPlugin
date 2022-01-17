@@ -1,0 +1,28 @@
+
+{% set pictograms = product.getPictograms %}
+{% set groups = product.getAllGroupsFromPictograms(pictograms) %}
+{% set pictogramsByGroup = [] %}
+
+{% for group in groups %}
+    {% set pictogramsByGroup = pictogramsByGroup|merge([product.getAllPictogramByGroupCode(group.code)]) %}
+{% endfor %}
+
+<div class="ui four column doubling stackable grid container" style="margin: 5px 0">
+    {% for group in pictogramsByGroup %}
+        <div class="column">
+             <h4 class="ui header" style="margin-bottom: 5px">
+                {{ group.first.pictogramGroup }}
+             </h4>
+            <div class="ui four column doubling stackable grid container" style="margin-top: 0px">
+
+            {% for pictogram in group %}
+                    <img src="{{ pictogram.path|imagine_filter('my_thumb') }}"
+                         data-src="{{ pictogram.path|imagine_filter('my_thumb') }}"
+                         alt="{{ pictogram.name }}"
+                    class="ui tiny image">
+            {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+
+</div>

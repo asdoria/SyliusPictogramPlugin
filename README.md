@@ -1,8 +1,7 @@
 <p align="center">
-    <a href="https://sylius.com" target="_blank">
-        <img src="https://demo.sylius.com/assets/shop/img/logo.png" />
-    </a>
 </p>
+
+![Example of a product's pictograms customization](doc/asdoria.jpg)
 
 <h1 align="center">Asdoria Pictogram Bundle</h1>
 
@@ -10,9 +9,27 @@
 
 ## Features
 
-+ Easily create groups of pictograms
-+ Customize which pictograms are to be displayed from the product configuration page
-+ 
++ Create groups of pictograms using your own images
++ Easily customize which pictograms to display from the product configuration page
++ Images are automatically displayed on the product's store page
+
+<div style="max-width: 75%; height: auto; margin: auto">
+
+![Example of a product's pictograms customization](doc/product.jpg)
+
+</div>
+
+
+<div style="max-width: 75%; height: auto; margin: auto">
+
+Toggling the pictograms to display for a product
+![Example of a product's pictograms customization](doc/product.gif)
+
+</div>
+
+
+
+
 
 ## Installation
 
@@ -21,64 +38,67 @@
 
 ```JSON
 "repositories": [
-    // ...
     {
-    "type": "gitlab",
-    "url": "https://gitlab.asdoria.org/asdoria/asdoriabundles/asdoriapictogramplugin.git"
+        "type": "git",
+        "url": "https://github.com/pvasdoria/asdoriasyliuspictogramplugin.git"
     }
-    ]
+],
 ```
-2. run `composer require asdoria/pictogram-bundle`
+2. run `composer require asdoria/sylius-pictogram-plugin`
 
 
-3. Add the bundle at the top of `app/config/bundles.php`
+3. Add the bundle in `app/config/bundles.php`. You must put it ABOVE `SyliusGridBundle`
 
 ```PHP
-Asdoria\Bundle\PictogramBundle\AsdoriaPictogramPlugin::class => ['all' => true],
+Asdoria\SyliusPictogramPlugin\AsdoriaSyliusPictogramPlugin::class => ['all' => true],
+[...]
+Sylius\Bundle\GridBundle\SyliusGridBundle::class => ['all' => true],
 ```
 
-4. run `php bin/console do:mi:mi` to update the database schema
-
-
-5. Import routes in `app/config/routes.yaml`
+4. Import routes in `app/config/routes.yaml`
 
 ```yaml
 asdoria_pictogram:
-    resource: "@SyliusPictogramPlugin/Resources/config/routing.yml"
+    resource: "@AsdoriaSyliusPictogramPlugin/Resources/config/routing.yaml"
     prefix: /admin
 ```
 
-6. Import config in `app/config/packages/_sylius.yaml`
+5. Import config in `app/config/packages/_sylius.yaml`
 ```yaml
 imports:
-    - { resource: "@SyliusPictogramPlugin/Resources/config/config.yml" }
+    - { resource: "@AsdoriaSyliusPictogramPlugin/Resources/config/config.yaml"}
 ```
+6. In `src/Entity/Product/Product.php`. Import `Asdoria\SyliusPictogramPlugin\Traits\PictogramsTrait` and initialize a pictogram collection in the constructor
+   
+```PHP
+//src/Entity/Product.php
+use PictogramsTrait;
 
-7. Override the product ORM in `src/Resources/config/doctrine/Product.orm.xml`
-```xml
-<many-to-many field="pictograms" target-entity="Asdoria\Bundle\PictogramBundle\Model\PictogramInterface" inversed-by="products">
-    <join-table name="asdoria_products_pictograms">
-        <join-columns>
-            <join-column name="product_id" referenced-column-name="id" />
-        </join-columns>
-        <inverse-join-columns>
-            <join-column name="pictogram_id" referenced-column-name="id" />
-        </inverse-join-columns>
-    </join-table>
-</many-to-many>
+public function __construct()
+{
+    parent::__construct();
+    $this->initializePictogramsCollection();
+}
 ```
+7. run `php bin/console do:mi:mi` to update the database schema
 
-8. Display the pictograms in your view (here using a `liip_imagine` filter)
 
-```html
-{% for picto in product.pictograms %}
-    <img src="{{ picto.path|imagine_filter('~') }}"
-         data-src="{{ picto.path|imagine_filter('~') }}" 
-         alt="{{ picto.name }}">
-{% endfor %}
+8. Create the block event responsible for displaying the pictograms in `config/packages/sylius_ui.yaml`
+```yaml
+sylius_ui:
+   events:
+       sylius.shop.product.show.content:
+           blocks:
+               terms:
+                   template: "@AsdoriaSyliusPictogramPlugin/Shop/Product/show/_groupsPicto.html.twig"
+                   priority: 25
 ```
 
 ## Usage
 
-1. In the back office, under `Catalog`, enter `Pictogram Groups`. Create a group and upload as many files as you need
-2. 
+1. In the back office, under `Catalog`, enter `Pictogram Groups`. Create a group using a unique code
+2. In `Pictogram Groups`, click `Modify Pictograms` to create/delete images for this group
+3. Go to a product's edit page, then click the `Pictograms` tab in the sidebar. Here you can toggle which pictograms you wish to display
+
+
+

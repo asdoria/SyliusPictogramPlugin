@@ -2,21 +2,40 @@ sylius_ui:
     events:
         sylius.admin.product.update.javascripts:
             blocks:
-                scripts:
-                    template: "@AsdoriaSyliusPictogramPlugin/Admin/Product/_javascripts.html.twig"
+                asdoria_pictograms_javascripts:
+                    template: "@AsdoriaSyliusPictogramPlugin/Admin/_javascripts.html.twig"
                     priority: 10
         sylius.admin.product.create.javascripts:
             blocks:
-                scripts:
-                    template: "@AsdoriaSyliusPictogramPlugin/Admin/Product/_javascripts.html.twig"
+                asdoria_pictograms_javascripts:
+                    template: "@AsdoriaSyliusPictogramPlugin/Admin/_javascripts.html.twig"
                     priority: 10
         sylius.admin.product.update.stylesheets:
             blocks:
-                scripts:
-                    template: "@AsdoriaSyliusPictogramPlugin/Admin/Product/_stylesheets.html.twig"
+                asdoria_pictograms_stylesheets:
+                    template: "@AsdoriaSyliusPictogramPlugin/Admin/_stylesheets.html.twig"
                     priority: 10
         sylius.admin.product.create.stylesheets:
             blocks:
-                scripts:
-                    template: "@AsdoriaSyliusPictogramPlugin/Admin/Product/_stylesheets.html.twig"
+                asdoria_pictograms_stylesheets:
+                    template: "@AsdoriaSyliusPictogramPlugin/Admin/_stylesheets.html.twig"
                     priority: 10
+
+        asdoria.admin.pictogram.index.stylesheets:
+            blocks:
+                asdoria_pictograms_stylesheets:
+                    template: "@AsdoriaSyliusPictogramPlugin/Admin/_stylesheets.html.twig"
+                    priority: 10
+        asdoria.admin.pictogram.index.javascripts:
+            blocks:
+                asdoria_pictograms_javascripts:
+                    template: "@AsdoriaSyliusPictogramPlugin/Admin/_javascripts.html.twig"
+                    priority: 10
+
+
+
+        sylius.shop.product.show.content:
+            blocks:
+                asdoria_pictograms:
+                    template: "@AsdoriaSyliusPictogramPlugin/Shop/Product/show/_groupsPicto.html.twig"
+                    priority: 25

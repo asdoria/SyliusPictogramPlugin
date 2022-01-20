@@ -36,7 +36,6 @@ class Pictogram implements PictogramInterface
         getTranslation as private doGetTranslation;
     }
 
-
     /**
      * Pictogram constructor.
      */

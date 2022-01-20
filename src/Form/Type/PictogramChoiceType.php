@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 
 namespace Asdoria\SyliusPictogramPlugin\Form\Type;
 
@@ -19,15 +19,15 @@ class PictogramChoiceType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'widget' => 'pictogram_choice_widget',
+            'widget'   => 'pictogram_choice_widget',
             'expanded' => true
         ]);
     }
 
     /**
-     * @return mixed
+     * @return string|null
      */
-    public function getParent()
+    public function getParent(): ?string
     {
         return EntityType::class;
     }

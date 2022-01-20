@@ -3,8 +3,6 @@ declare(strict_types=1);
 
 namespace Asdoria\SyliusPictogramPlugin\DependencyInjection;
 
-use Asdoria\Bundle\FacetFilterBundle\Entity\MatrixFacetGroupTranslation;
-use Asdoria\Bundle\FacetFilterBundle\Form\Type\MatrixFacetGroupTranslationType;
 use Asdoria\SyliusPictogramPlugin\Controller\PictogramController;
 use Asdoria\SyliusPictogramPlugin\Entity\Pictogram;
 use Asdoria\SyliusPictogramPlugin\Entity\PictogramGroup;
@@ -23,7 +21,6 @@ use Sylius\Bundle\ResourceBundle\Controller\ResourceController;
 use Sylius\Bundle\ResourceBundle\SyliusResourceBundle;
 use Sylius\Component\Resource\Factory\Factory;
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
-use Symfony\Component\Config\Definition\Builder\NodeBuilder;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
@@ -41,23 +38,22 @@ class Configuration  implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder('asdoria_sylius_pictogram_plugin');
-//        $rootNode    = $treeBuilder->getRootNode();
+
         /** @var ArrayNodeDefinition $rootNode */
         $rootNode = $treeBuilder->getRootNode();
-        // Here you should define the parameters that are allowed to
-        // configure your bundle. See the documentation linked above for
-        // more information on that topic.
         $rootNode
             ->addDefaultsIfNotSet()
             ->children()
-            ->scalarNode('driver')->defaultValue(SyliusResourceBundle::DRIVER_DOCTRINE_ORM)->end()
+                ->scalarNode('driver')->defaultValue(SyliusResourceBundle::DRIVER_DOCTRINE_ORM)->end()
             ->end();
         $this->addResourcesSection($rootNode);
 
         return $treeBuilder;
     }
 
-
+    /**
+     * @param ArrayNodeDefinition $node
+     */
     private function addResourcesSection(ArrayNodeDefinition $node): void
     {
         $node
@@ -148,5 +144,4 @@ class Configuration  implements ConfigurationInterface
                 ->end()
             ->end();
     }
-
 }

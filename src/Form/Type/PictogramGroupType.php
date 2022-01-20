@@ -23,9 +23,8 @@ class PictogramGroupType extends AbstractResourceType
             ->add('code')
             ->add('translations', ResourceTranslationsType::class, [
                 'entry_type' => PictogramGroupTranslationType::class,
-                'label' => 'asdoria.form.pictogram.translations',
+                'label'      => 'asdoria.form.pictogram.translations',
             ]);
-        ;
     }
 
     /**

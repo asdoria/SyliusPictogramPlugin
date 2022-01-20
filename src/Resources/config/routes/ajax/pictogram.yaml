@@ -26,8 +26,6 @@ asdoria_admin_ajax_pictogram_by_ids:
                 method: findById
                 arguments: [$id]
 
-
-
 asdoria_admin_ajax_pictogram_search:
     path: /find
     methods: [GET]

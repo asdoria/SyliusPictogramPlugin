@@ -12,8 +12,10 @@ use Asdoria\SyliusPictogramPlugin\Model\PictogramGroupInterface;
  */
 trait PictogramGroupTrait
 {
-    /** @var PictogramGroupInterface|null */
-    protected $pictogramGroup;
+    /**
+     * @var PictogramGroupInterface|null
+     */
+    protected ?PictogramGroupInterface $pictogramGroup;
 
     /**
      * @return PictogramGroupInterface|null

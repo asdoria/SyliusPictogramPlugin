@@ -1,4 +1,4 @@
 imports:
-  - { resource: "app/*.yaml" }
-  - { resource: "app/**/*.yaml" }
+    - { resource: "app/*.yaml" }
+    - { resource: "app/**/*.yaml" }
 

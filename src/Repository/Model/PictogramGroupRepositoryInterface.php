@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Asdoria\SyliusPictogramPlugin\Repository\Model;
 
-use Doctrine\ORM\QueryBuilder;
 use Sylius\Component\Resource\Repository\RepositoryInterface;
 
 /**

@@ -2,9 +2,7 @@
 
 declare(strict_types=1);
 
-
 namespace Asdoria\SyliusPictogramPlugin\Traits;
-
 
 /**
  * Class SortableTrait
@@ -14,9 +12,10 @@ namespace Asdoria\SyliusPictogramPlugin\Traits;
  */
 trait SortableTrait
 {
-
-    /** @var int */
-    protected $position = 0;
+    /**
+     * @var int|null
+     */
+    protected ?int $position = 0;
 
     /**
      * @return int
@@ -27,7 +26,7 @@ trait SortableTrait
     }
 
     /**
-     * @param int $position
+     * @param int|null $position
      */
     public function setPosition(?int $position): void
     {

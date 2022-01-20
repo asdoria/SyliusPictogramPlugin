@@ -47,7 +47,7 @@ Toggling the pictograms to display for a product
 2. run `composer require asdoria/sylius-pictogram-plugin`
 
 
-3. Add the bundle in `app/config/bundles.php`. You must put it ABOVE `SyliusGridBundle`
+3. Add the bundle in `config/bundles.php`. You must put it ABOVE `SyliusGridBundle`
 
 ```PHP
 Asdoria\SyliusPictogramPlugin\AsdoriaSyliusPictogramPlugin::class => ['all' => true],
@@ -55,7 +55,7 @@ Asdoria\SyliusPictogramPlugin\AsdoriaSyliusPictogramPlugin::class => ['all' => t
 Sylius\Bundle\GridBundle\SyliusGridBundle::class => ['all' => true],
 ```
 
-4. Import routes in `app/config/routes.yaml`
+4. Import routes in `config/routes.yaml`
 
 ```yaml
 asdoria_pictogram:
@@ -63,36 +63,37 @@ asdoria_pictogram:
     prefix: /admin
 ```
 
-5. Import config in `app/config/packages/_sylius.yaml`
+5. Import config in `config/packages/_sylius.yaml`
 ```yaml
 imports:
     - { resource: "@AsdoriaSyliusPictogramPlugin/Resources/config/config.yaml"}
 ```
 6. In `src/Entity/Product/Product.php`. Import `Asdoria\SyliusPictogramPlugin\Traits\PictogramsTrait` and initialize a pictogram collection in the constructor
-   
-```PHP
-//src/Entity/Product.php
-use PictogramsTrait;
 
-public function __construct()
+```PHP
+
+// ...
+
+use Asdoria\SyliusPictogramPlugin\Traits\PictogramsTrait;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="sylius_product")
+ */
+class Product extends BaseProduct
 {
-    parent::__construct();
-    $this->initializePictogramsCollection();
+    use PictogramsTrait;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->initializePictogramsCollection();
+    }
+    
+    // ...
 }
 ```
 7. run `php bin/console do:mi:mi` to update the database schema
-
-
-8. Create the block event responsible for displaying the pictograms in `config/packages/sylius_ui.yaml`
-```yaml
-sylius_ui:
-   events:
-       sylius.shop.product.show.content:
-           blocks:
-               terms:
-                   template: "@AsdoriaSyliusPictogramPlugin/Shop/Product/show/_groupsPicto.html.twig"
-                   priority: 25
-```
 
 ## Usage
 

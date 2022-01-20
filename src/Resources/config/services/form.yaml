@@ -1,59 +1,59 @@
 parameters:
-  asdoria.form.type.pictogram_group.validation_groups: ['sylius']
-  asdoria.form.type.pictogram_group_translation.validation_groups: ['sylius']
-  asdoria.form.type.pictogram_image.validation_groups: ['sylius']
-  asdoria.form.type.pictogram.validation_groups: ['sylius']
-  asdoria.form.type.pictogram_translation.validation_groups: ['sylius']
+    asdoria.form.type.pictogram_group.validation_groups: [ 'sylius' ]
+    asdoria.form.type.pictogram_group_translation.validation_groups: [ 'sylius' ]
+    asdoria.form.type.pictogram_image.validation_groups: [ 'sylius' ]
+    asdoria.form.type.pictogram.validation_groups: [ 'sylius' ]
+    asdoria.form.type.pictogram_translation.validation_groups: [ 'sylius' ]
 
 services:
-  asdoria.form.type.pictogram_image:
-    class: Asdoria\SyliusPictogramPlugin\Form\Type\PictogramImageType
-    arguments:
-      - '%asdoria.model.pictogram_image.class%'
-      - '%asdoria.form.type.pictogram_image.validation_groups%'
-    tags:
-      - { name: form.type }
+    asdoria.form.type.pictogram_image:
+        class: Asdoria\SyliusPictogramPlugin\Form\Type\PictogramImageType
+        arguments:
+            - '%asdoria.model.pictogram_image.class%'
+            - '%asdoria.form.type.pictogram_image.validation_groups%'
+        tags:
+            - { name: form.type }
 
-  asdoria.form.type.pictogram:
-    class: Asdoria\SyliusPictogramPlugin\Form\Type\PictogramType
-    arguments:
-      - '%asdoria.model.pictogram.class%'
-      - '%asdoria.form.type.pictogram.validation_groups%'
-      - '@sylius.translation_locale_provider'
-    tags:
-      - { name: form.type }
+    asdoria.form.type.pictogram:
+        class: Asdoria\SyliusPictogramPlugin\Form\Type\PictogramType
+        arguments:
+            - '%asdoria.model.pictogram.class%'
+            - '%asdoria.form.type.pictogram.validation_groups%'
+            - '@sylius.translation_locale_provider'
+        tags:
+            - { name: form.type }
 
-  asdoria.form.type.pictogram_translation:
-    class: Asdoria\SyliusPictogramPlugin\Form\Type\PictogramTranslationType
-    arguments:
-      - '%asdoria.model.pictogram_translation.class%'
-      - '%asdoria.form.type.pictogram_translation.validation_groups%'
-    tags:
-      - { name: form.type }
-
-
-  asdoria.form.type.pictogram_group:
-    class: Asdoria\SyliusPictogramPlugin\Form\Type\PictogramGroupType
-    arguments:
-      - '%asdoria.model.pictogram_group.class%'
-      - '%asdoria.form.type.pictogram_group.validation_groups%'
-      - '@sylius.translation_locale_provider'
-    tags:
-      - { name: form.type }
-
-  asdoria.form.type.pictogram_group_translation:
-    class: Asdoria\SyliusPictogramPlugin\Form\Type\PictogramGroupTranslationType
-    arguments:
-      - '%asdoria.model.pictogram_group_translation.class%'
-      - '%asdoria.form.type.pictogram_group_translation.validation_groups%'
-    tags:
-      - { name: form.type }
+    asdoria.form.type.pictogram_translation:
+        class: Asdoria\SyliusPictogramPlugin\Form\Type\PictogramTranslationType
+        arguments:
+            - '%asdoria.model.pictogram_translation.class%'
+            - '%asdoria.form.type.pictogram_translation.validation_groups%'
+        tags:
+            - { name: form.type }
 
 
-  asdoria.form.type.product_pictogram_groups:
-    class: Asdoria\SyliusPictogramPlugin\Form\Type\ProductPictogramGroupsType
-    arguments:
-      $pictogramGroupRepository: '@asdoria.repository.pictogram_group'
-      $productsToPictogramGroupsTransformer: '@asdoria.form.type.data_transformer.products_to_pictogram_groups'
-    tags:
-      - { name: form.type }
+    asdoria.form.type.pictogram_group:
+        class: Asdoria\SyliusPictogramPlugin\Form\Type\PictogramGroupType
+        arguments:
+            - '%asdoria.model.pictogram_group.class%'
+            - '%asdoria.form.type.pictogram_group.validation_groups%'
+            - '@sylius.translation_locale_provider'
+        tags:
+            - { name: form.type }
+
+    asdoria.form.type.pictogram_group_translation:
+        class: Asdoria\SyliusPictogramPlugin\Form\Type\PictogramGroupTranslationType
+        arguments:
+            - '%asdoria.model.pictogram_group_translation.class%'
+            - '%asdoria.form.type.pictogram_group_translation.validation_groups%'
+        tags:
+            - { name: form.type }
+
+
+    asdoria.form.type.product_pictogram_groups:
+        class: Asdoria\SyliusPictogramPlugin\Form\Type\ProductPictogramGroupsType
+        arguments:
+            $pictogramGroupRepository: '@asdoria.repository.pictogram_group'
+            $productsToPictogramGroupsTransformer: '@asdoria.form.type.data_transformer.products_to_pictogram_groups'
+        tags:
+            - { name: form.type }

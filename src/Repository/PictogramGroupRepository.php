@@ -2,12 +2,9 @@
 
 declare(strict_types=1);
 
-
 namespace Asdoria\SyliusPictogramPlugin\Repository;
 
-
 use Asdoria\SyliusPictogramPlugin\Repository\Model\PictogramGroupRepositoryInterface;
-use Doctrine\ORM\QueryBuilder;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 
 /**

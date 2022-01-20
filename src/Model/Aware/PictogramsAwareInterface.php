@@ -2,9 +2,7 @@
 
 declare(strict_types=1);
 
-
 namespace Asdoria\SyliusPictogramPlugin\Model\Aware;
-
 
 use Asdoria\SyliusPictogramPlugin\Model\PictogramInterface;
 use Doctrine\Common\Collections\Collection;
@@ -18,27 +16,29 @@ use Doctrine\Common\Collections\Collection;
 interface PictogramsAwareInterface
 {
     /**
-     * {@inheritdoc}
+     * @return Collection
      */
     public function getPictograms(): Collection;
 
     /**
-     * {@inheritdoc}
+     * @return bool
      */
     public function hasPictograms(): bool;
 
     /**
-     * {@inheritdoc}
+     * @param PictogramInterface $pictogram
+     *
+     * @return bool
      */
     public function hasPictogram(PictogramInterface $pictogram): bool;
 
     /**
-     * {@inheritdoc}
+     * @param PictogramInterface $pictogram
      */
     public function addPictogram(PictogramInterface $pictogram): void;
 
     /**
-     * {@inheritdoc}
+     * @param PictogramInterface $pictogram
      */
     public function removePictogram(PictogramInterface $pictogram): void;
 

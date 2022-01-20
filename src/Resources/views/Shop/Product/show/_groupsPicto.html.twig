@@ -1,4 +1,3 @@
-
 {% set pictograms = product.getPictograms %}
 {% set groups = product.getAllGroupsFromPictograms(pictograms) %}
 {% set pictogramsByGroup = [] %}
@@ -7,22 +6,25 @@
     {% set pictogramsByGroup = pictogramsByGroup|merge([product.getAllPictogramByGroupCode(group.code)]) %}
 {% endfor %}
 
-<div class="ui four column doubling stackable grid container" style="margin: 5px 0">
+
+<div class="ui three column doubling stackable grid container">
     {% for group in pictogramsByGroup %}
         <div class="column">
-             <h4 class="ui header" style="margin-bottom: 5px">
+            <h4 class="ui header">
                 {{ group.first.pictogramGroup }}
-             </h4>
-            <div class="ui four column doubling stackable grid container" style="margin-top: 0px">
-
-            {% for pictogram in group %}
-                    <img src="{{ pictogram.path|imagine_filter('my_thumb') }}"
-                         data-src="{{ pictogram.path|imagine_filter('my_thumb') }}"
-                         alt="{{ pictogram.name }}"
-                    class="ui tiny image">
-            {% endfor %}
+            </h4>
+            <div class="ui four column doubling stackable grid container">
+                {% for pictogram in group|sort((a,b) => a.position > b.position) %}
+                    <div class="column">
+                        <img src="{{ pictogram.path|imagine_filter('sylius_shop_pictogram_thumbnail') }}"
+                             alt="{{ pictogram.name }}"
+                             title="{{ pictogram.name }}"
+                             class="ui tiny image">
+                    </div>
+                {% endfor %}
             </div>
         </div>
     {% endfor %}
-
 </div>
+
+<div class="ui divider hidden"></div>

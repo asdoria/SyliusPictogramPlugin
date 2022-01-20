@@ -1,9 +1,9 @@
 services:
-  Sylius\Bundle\CoreBundle\EventListener\ImageUploadListener:
-    parent: sylius.listener.avatar_upload
-    autowire: true
-    autoconfigure: false
-    public: false
-    tags:
-      - { name: kernel.event_listener, event: asdoria.pictogram.pre_create, method: uploadImage }
-      - { name: kernel.event_listener, event: asdoria.pictogram.pre_update, method: uploadImage }
+    asdoria.listener.pictograms_upload:
+        parent: sylius.listener.images_upload
+        autowire: true
+        autoconfigure: false
+        public: false
+        tags:
+            - { name: kernel.event_listener, event: asdoria.pictogram.pre_create, method: uploadImage }
+            - { name: kernel.event_listener, event: asdoria.pictogram.pre_update, method: uploadImage }

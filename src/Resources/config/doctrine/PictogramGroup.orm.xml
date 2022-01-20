@@ -7,15 +7,18 @@
         <id name="id" column="id" type="integer">
             <generator strategy="AUTO" />
         </id>
+
         <field name="code" column="code" type="string" unique="true"/>
+
+        <field name="position" type="integer">
+            <gedmo:sortable-position />
+        </field>
+
         <one-to-many field="pictograms" target-entity="Asdoria\SyliusPictogramPlugin\Model\PictogramInterface" mapped-by="pictogramGroup">
             <cascade>
                 <cascade-remove/>
             </cascade>
         </one-to-many>
-        <field name="position" type="integer">
-            <gedmo:sortable-position />
-        </field>
     </mapped-superclass>
 
 </doctrine-mapping>

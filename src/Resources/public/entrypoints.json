@@ -2,10 +2,10 @@
   "entrypoints": {
     "admin-pictogram": {
       "css": [
-        "/bundles/asdoriasyliuspictogramplugin/admin-pictogram.min.css"
+        "/bundles/asdoriapictogram/admin-pictogram.min.css"
       ],
       "js": [
-        "/bundles/asdoriasyliuspictogramplugin/admin-pictogram.min.js"
+        "/bundles/asdoriapictogram/admin-pictogram.min.js"
       ]
     }
   }

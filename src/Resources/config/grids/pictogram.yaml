@@ -7,7 +7,7 @@ sylius_grid:
                     class: '%asdoria.model.pictogram.class%'
                     repository:
                         method: createQueryBuilderByPictogramGroupId
-                        arguments: ["%locale%", $pictogramGroupId]
+                        arguments: [ "%locale%", $pictogramGroupId ]
             sorting:
                 position: asc
             fields:
@@ -53,4 +53,4 @@ sylius_grid:
                     type: string
                     label: sylius.ui.search
                     options:
-                        fields: [translations.name]
+                        fields: [ translations.name ]

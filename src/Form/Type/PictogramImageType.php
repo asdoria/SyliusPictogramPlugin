@@ -14,7 +14,6 @@ use Symfony\Component\Form\FormBuilderInterface;
  */
 class PictogramImageType extends ImageType
 {
-
     /**
      * {@inheritdoc}
      */
@@ -23,10 +22,8 @@ class PictogramImageType extends ImageType
         $builder
             ->add('file', FileType::class, [
                 'label' => 'asdoria.form.pictogram_image.file',
-            ])
-        ;
+            ]);
     }
-
 
     /**
      * {@inheritdoc}

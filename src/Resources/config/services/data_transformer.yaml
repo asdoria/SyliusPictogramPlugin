@@ -1,7 +1,0 @@
-services:
-    asdoria.form.type.data_transformer.products_to_pictogram_groups:
-        class: App\Form\DataTransformer\ProductsToPictogramGroupsTransformer
-        arguments:
-            - '@asdoria.factory.pictogram'
-            - '@sylius.repository.product'
-            - '@asdoria.repository.pictogram_group'

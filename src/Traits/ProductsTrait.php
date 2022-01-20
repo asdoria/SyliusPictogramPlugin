@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-
 namespace Asdoria\SyliusPictogramPlugin\Traits;
 
 use Sylius\Component\Core\Model\ProductInterface;
@@ -15,8 +14,10 @@ use Doctrine\Common\Collections\Collection;
  */
 trait ProductsTrait
 {
-    /** @var Collection|null */
-    protected $products;
+    /**
+     * @var Collection|null
+     */
+    protected Collection $products;
 
     /**
      * ProductProducts constructor

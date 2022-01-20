@@ -6,7 +6,6 @@ namespace Asdoria\SyliusPictogramPlugin\Form\Type;
 
 use Asdoria\SyliusPictogramPlugin\Entity\PictogramGroup;
 use Asdoria\SyliusPictogramPlugin\Entity\PictogramImage;
-use Asdoria\SyliusPictogramPlugin\Entity\ProductVariant;
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Sylius\Bundle\ResourceBundle\Form\Type\ResourceTranslationsType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -27,17 +26,16 @@ class PictogramType extends AbstractResourceType
             ->add('code')
             ->add('translations', ResourceTranslationsType::class, [
                 'entry_type' => PictogramTranslationType::class,
-                'label' => 'asdoria.form.pictogram.translations',
+                'label'      => 'asdoria.form.pictogram.translations',
             ])
             ->add('pictogramGroup', EntityType::class, [
                 'label' => 'asdoria.form.pictogram.pictogram_group',
                 'class' => PictogramGroup::class,
             ])
             ->add('image', PictogramImageType::class, [
-                'label' => 'asdoria.form.pictogram.main_image',
+                'label'      => 'asdoria.form.pictogram.main_image',
                 'data_class' => PictogramImage::class
-            ])
-        ;
+            ]);
     }
 
     /**

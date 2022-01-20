@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace Asdoria\SyliusPictogramPlugin\Traits;
 
-
 use Asdoria\SyliusPictogramPlugin\Model\PictogramInterface;
 
 /**
@@ -12,9 +11,10 @@ use Asdoria\SyliusPictogramPlugin\Model\PictogramInterface;
  */
 trait PictogramTrait
 {
-
-    /** @var PictogramInterface|null */
-    protected $pictogram;
+    /**
+     * @var PictogramInterface|null
+     */
+    protected ?PictogramInterface $pictogram;
 
     /**
      * @return PictogramInterface|null

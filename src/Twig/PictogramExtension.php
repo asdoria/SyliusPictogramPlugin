@@ -1,27 +1,22 @@
 <?php
 declare(strict_types=1);
 
-
 namespace Asdoria\SyliusPictogramPlugin\Twig;
 
-
-use Asdoria\SyliusPictogramPlugin\Model\PictogramInterface;
 use Sylius\Component\Resource\Repository\RepositoryInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
-
 
 /**
  * Class PictogramExtension
  * @package App\Twig
  */
-class PictogramExtension extends AbstractExtension {
-
-
+class PictogramExtension extends AbstractExtension
+{
     /**
      * @var RepositoryInterface
      */
-    private $pictogramRepository;
+    protected RepositoryInterface $pictogramRepository;
 
     /**
      * PictogramExtension constructor.
@@ -39,18 +34,7 @@ class PictogramExtension extends AbstractExtension {
     public function getFunctions(): array
     {
         return [
-            new TwigFunction('getPictogramForId', [$this, 'getPictogramForId']),
+            new TwigFunction('getPictogramForId', [$this->pictogramRepository, 'find']),
         ];
     }
-
-    /**
-     * @param $id
-     *
-     * @return PictogramInterface|null
-     */
-    public function getPictogramForId($id) : ?PictogramInterface
-    {
-        return $this->pictogramRepository->find($id);
-    }
-
 }

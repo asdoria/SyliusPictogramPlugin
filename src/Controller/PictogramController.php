@@ -1,14 +1,4 @@
 <?php
-
-/*
- * This file is part of the Sylius package.
- *
- * (c) Paweł Jędrzejewski
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 declare(strict_types=1);
 
 namespace Asdoria\SyliusPictogramPlugin\Controller;
@@ -21,6 +11,12 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
+/**
+ * Class PictogramController
+ * @package Asdoria\SyliusPictogramPlugin\Controller
+ *
+ * @author  Hugo Duval <hugo.duval@asdoria.com>
+ */
 class PictogramController extends ResourceController
 {
     /**
@@ -41,7 +37,7 @@ class PictogramController extends ResourceController
                 if (!is_numeric($pictogramToUpdate['position'])) {
                     throw new HttpException(
                         Response::HTTP_NOT_ACCEPTABLE,
-                        sprintf('The product variant position "%s" is invalid.', $pictogramToUpdate['position'])
+                        sprintf('The pictogram position "%s" is invalid.', $pictogramToUpdate['position'])
                     );
                 }
 

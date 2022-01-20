@@ -44,6 +44,12 @@ class PictogramRepository extends EntityRepository implements PictogramRepositor
             ;
     }
 
+    /**
+     * @param string $locale
+     * @param        $pictogramGroupId
+     *
+     * @return QueryBuilder
+     */
     public function createQueryBuilderByProductId(string $locale, $pictogramGroupId): QueryBuilder
     {
         return $this->createQueryBuilder('o')
@@ -54,6 +60,4 @@ class PictogramRepository extends EntityRepository implements PictogramRepositor
             ->setParameter('pictogramGroupId', $pictogramGroupId)
             ;
     }
-
-
 }

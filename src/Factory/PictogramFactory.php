@@ -2,9 +2,7 @@
 
 declare(strict_types=1);
 
-
 namespace Asdoria\SyliusPictogramPlugin\Factory;
-
 
 use Asdoria\SyliusPictogramPlugin\Factory\Model\PictogramFactoryInterface;
 use Asdoria\SyliusPictogramPlugin\Model\PictogramGroupInterface;
@@ -14,10 +12,12 @@ use Asdoria\SyliusPictogramPlugin\Model\PictogramInterface;
  * Class PictogramFactory
  * @package Asdoria\SyliusPictogramPlugin\Factory
  */
-class PictogramFactory implements PictogramFactoryInterface
+final class PictogramFactory implements PictogramFactoryInterface
 {
-    /** @var string */
-    private $className;
+    /**
+     * @var string
+     */
+    private string $className;
 
     /**
      * PictogramFactory constructor.

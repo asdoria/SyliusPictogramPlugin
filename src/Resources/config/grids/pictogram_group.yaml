@@ -45,4 +45,4 @@ sylius_grid:
                     type: string
                     label: sylius.ui.search
                     options:
-                        fields: [translations.name]
+                        fields: [ translations.name ]

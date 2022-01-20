@@ -1,6 +1,5 @@
 <?php
 
-
 declare(strict_types=1);
 
 namespace Asdoria\SyliusPictogramPlugin\Form\Type;
@@ -20,19 +19,28 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
  *
  * @author  Philippe Vesin <pve.asdoria@gmail.com>
  */
- class ProductPictogramGroupsType extends AbstractType
+class ProductPictogramGroupsType extends AbstractType
 {
-    /** @var RepositoryInterface */
-    private $pictogramGroupRepository;
+    /**
+     * @var RepositoryInterface
+     */
+    private RepositoryInterface $pictogramGroupRepository;
 
-    /** @var DataTransformerInterface */
-    private $productsToPictogramGroupsTransformer;
+    /**
+     * @var DataTransformerInterface
+     */
+    private DataTransformerInterface $productsToPictogramGroupsTransformer;
 
+    /**
+     * @param RepositoryInterface      $pictogramGroupRepository
+     * @param DataTransformerInterface $productsToPictogramGroupsTransformer
+     */
     public function __construct(
-        RepositoryInterface $pictogramGroupRepository,
+        RepositoryInterface      $pictogramGroupRepository,
         DataTransformerInterface $productsToPictogramGroupsTransformer
-    ) {
-        $this->pictogramGroupRepository = $pictogramGroupRepository;
+    )
+    {
+        $this->pictogramGroupRepository             = $pictogramGroupRepository;
         $this->productsToPictogramGroupsTransformer = $productsToPictogramGroupsTransformer;
     }
 
@@ -50,9 +58,9 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'entries' => $this->pictogramGroupRepository->findAll(),
-            'entry_type' => TextType::class,
-            'entry_name' => function (PictogramGroupInterface $productPictogramGroup) {
+            'entries'       => $this->pictogramGroupRepository->findAll(),
+            'entry_type'    => TextType::class,
+            'entry_name'    => function (PictogramGroupInterface $productPictogramGroup) {
                 return $productPictogramGroup->getCode();
             },
             'entry_options' => function (PictogramGroupInterface $productPictogramGroup) {

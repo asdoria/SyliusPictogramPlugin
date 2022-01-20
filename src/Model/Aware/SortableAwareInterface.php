@@ -2,9 +2,7 @@
 
 declare(strict_types=1);
 
-
 namespace Asdoria\SyliusPictogramPlugin\Model\Aware;
-
 
 /**
  * Class SortableAwareInterface
@@ -20,7 +18,7 @@ interface SortableAwareInterface
     public function getPosition(): ?int;
 
     /**
-     * @param int $position
+     * @param int|null $position
      */
     public function setPosition(?int $position): void;
 }

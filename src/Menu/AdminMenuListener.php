@@ -7,6 +7,12 @@ namespace Asdoria\SyliusPictogramPlugin\Menu;
 use Knp\Menu\ItemInterface;
 use Sylius\Bundle\UiBundle\Menu\Event\MenuBuilderEvent;
 
+/**
+ * Class AdminMenuListener
+ * @package Asdoria\SyliusPictogramPlugin\Menu
+ *
+ * @author  Hugo Duval <hugo.duval@asdoria.com>
+ */
 final class AdminMenuListener
 {
     /**
@@ -25,6 +31,9 @@ final class AdminMenuListener
         }
     }
 
+    /**
+     * @param ItemInterface $item
+     */
     private function addChild(ItemInterface $item): void
     {
         $item

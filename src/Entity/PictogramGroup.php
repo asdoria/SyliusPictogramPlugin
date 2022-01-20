@@ -27,7 +27,6 @@ class PictogramGroup implements PictogramGroupInterface
     use CodeTrait;
     use SortableTrait;
 
-
     use TranslatableTrait {
         __construct as private initializeTranslationsCollection;
         getTranslation as private doGetTranslation;

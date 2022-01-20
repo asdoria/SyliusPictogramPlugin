@@ -2,9 +2,7 @@
 
 declare(strict_types=1);
 
-
 namespace Asdoria\SyliusPictogramPlugin\Traits;
-
 
 /**
  * Class NamingTrait
@@ -14,9 +12,10 @@ namespace Asdoria\SyliusPictogramPlugin\Traits;
  */
 trait NamingTrait
 {
-
-    /** @var string|null */
-    protected $name;
+    /**
+     * @var string|null
+     */
+    protected ?string $name;
 
     /**
      * @return string|null

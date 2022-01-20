@@ -4,9 +4,9 @@ declare(strict_types=1);
 namespace Asdoria\SyliusPictogramPlugin;
 
 use Sylius\Bundle\CoreBundle\Application\SyliusPluginTrait;
-use Symfony\Component\HttpKernel\Bundle\Bundle;
-use Sylius\Bundle\ResourceBundle\AbstractResourceBundle;
 use Sylius\Bundle\ResourceBundle\SyliusResourceBundle;
+use Symfony\Component\HttpKernel\Bundle\Bundle;
+
 /**
  * Class SyliusPictogramPlugin
  * @package Asdoria\Bundle\PictogramBundle
@@ -17,6 +17,9 @@ final class AsdoriaSyliusPictogramPlugin extends Bundle
 {
     use SyliusPluginTrait;
 
+    /**
+     * @return array
+     */
     public function getSupportedDrivers(): array
     {
         return [

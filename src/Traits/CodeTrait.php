@@ -10,9 +10,9 @@ namespace Asdoria\SyliusPictogramPlugin\Traits;
 trait CodeTrait
 {
     /**
-     * @var string
+     * @var string|null
      */
-    protected $code = null;
+    protected ?string $code = null;
 
     /**
      * @return null|string

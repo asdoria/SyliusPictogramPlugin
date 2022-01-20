@@ -2,9 +2,7 @@
 
 declare(strict_types=1);
 
-
 namespace Asdoria\SyliusPictogramPlugin\Model;
-
 
 use Asdoria\SyliusPictogramPlugin\Model\Aware\PictogramsAwareInterface;
 use Sylius\Component\Resource\Model\CodeAwareInterface;

@@ -7,7 +7,7 @@ sylius_grid:
                     class: Asdoria\SyliusPictogramPlugin\Entity\Pictogram
                     repository:
                         method: createListQueryBuilder
-                        arguments: [$pictogramGroupId]
+                        arguments: [ $pictogramGroupId ]
             fields:
                 image:
                     type: twig
@@ -68,4 +68,4 @@ sylius_grid:
                     type: string
                     label: sylius.ui.search
                     options:
-                        fields: [translations.name]
+                        fields: [ translations.name ]

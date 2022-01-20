@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace Asdoria\SyliusPictogramPlugin\Traits;
 
-
 use Sylius\Component\Core\Model\ImageInterface;
 
 /**
@@ -15,7 +14,7 @@ trait ImageTrait
     /**
      * @var ImageInterface|null
      */
-    protected $image;
+    protected ?ImageInterface $image;
 
     /**
      * @return ImageInterface|null

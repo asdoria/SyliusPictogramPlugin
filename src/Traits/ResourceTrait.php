@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-
 namespace Asdoria\SyliusPictogramPlugin\Traits;
 
 /**
@@ -12,7 +11,7 @@ namespace Asdoria\SyliusPictogramPlugin\Traits;
 trait ResourceTrait
 {
     /**
-     * @var int
+     * @var int|null
      */
     protected $id;
 

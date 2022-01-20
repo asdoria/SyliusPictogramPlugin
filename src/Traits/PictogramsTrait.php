@@ -4,14 +4,12 @@ declare(strict_types=1);
 
 namespace Asdoria\SyliusPictogramPlugin\Traits;
 
-use App\Model\ProductPictogramInterface;
 use Asdoria\SyliusPictogramPlugin\Entity\Pictogram;
-use Asdoria\SyliusPictogramPlugin\Model\PictogramGroupInterface;
 use Asdoria\SyliusPictogramPlugin\Model\PictogramInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\Criteria;
+
 /**
  * Trait PictogramsTrait
  * @package Asdoria\SyliusPictogramPlugin\Traits
@@ -19,7 +17,7 @@ use Doctrine\Common\Collections\Criteria;
 trait PictogramsTrait
 {
     /**
-     * @var Collection|null
+     * @var Collection
      *
      * @ORM\ManyToMany(
      *      targetEntity="Asdoria\SyliusPictogramPlugin\Model\PictogramInterface",
@@ -30,7 +28,8 @@ trait PictogramsTrait
      *      inverseJoinColumns={@ORM\JoinColumn(name="pictogram_id", referencedColumnName="id")}
      *      )
      */
-    protected $pictograms;
+    protected Collection $pictograms;
+
     /**
      * PictogramsTrait constructor.
      */
@@ -40,9 +39,9 @@ trait PictogramsTrait
     }
 
     /**
-     * @return Collection|null
+     * @return Collection
      */
-    public function getPictograms(): ?Collection
+    public function getPictograms(): Collection
     {
         return $this->pictograms;
     }
@@ -108,8 +107,7 @@ trait PictogramsTrait
         foreach ($pictograms as $pictogram) {
             array_push($groups, $pictogram->getPictogramGroup());
         }
-        $groups = array_unique($groups);
 
-        return $groups;
+        return array_unique($groups);
     }
 }

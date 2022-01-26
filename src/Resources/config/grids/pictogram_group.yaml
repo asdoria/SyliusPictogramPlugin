@@ -26,6 +26,8 @@ sylius_grid:
                 main:
                     create:
                         type: create
+                    update_positions:
+                        type: update_pictogram_group_positions
                 item:
                     update:
                         type: update

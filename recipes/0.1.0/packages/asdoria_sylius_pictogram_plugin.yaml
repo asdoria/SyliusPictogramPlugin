@@ -1,0 +1,2 @@
+imports:
+    - { resource: "@AsdoriaSyliusPictogramPlugin/Resources/config/config.yaml"}

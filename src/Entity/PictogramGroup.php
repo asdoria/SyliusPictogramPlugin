@@ -23,7 +23,6 @@ class PictogramGroup implements PictogramGroupInterface
 {
     use ResourceTrait;
     use PictogramsTrait;
-    use NamingTrait;
     use CodeTrait;
     use SortableTrait;
 
@@ -39,6 +38,18 @@ class PictogramGroup implements PictogramGroupInterface
     {
         $this->initializeTranslationsCollection();
         $this->initializePictogramsCollection();
+    }
+
+    /**
+     * @return string|null
+     */
+    public function __toString() {
+        return $this->getName();
+    }
+
+    public function getName(): ?string
+    {
+        return $this->getTranslation()->getName();
     }
 
     /**

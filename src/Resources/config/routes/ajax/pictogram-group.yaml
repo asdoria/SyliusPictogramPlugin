@@ -1,0 +1,8 @@
+asdoria_admin_ajax_pictogram_groups_update_position:
+    path: /update
+    methods: [PUT]
+    defaults:
+        _controller: asdoria.controller.pictogram_group:updatePositionsAction
+        _format: json
+        _sylius:
+            permission: true

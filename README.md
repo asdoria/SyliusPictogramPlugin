@@ -40,7 +40,7 @@ Toggling the pictograms to display for a product
 "repositories": [
     {
         "type": "git",
-        "url": "https://github.com/pvasdoria/asdoriasyliuspictogramplugin.git"
+        "url": "https://github.com/asdoria/AsdoriaSyliusPictogramPlugin.git"
     }
 ],
 ```

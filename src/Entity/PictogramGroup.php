@@ -42,30 +42,6 @@ class PictogramGroup implements PictogramGroupInterface
     }
 
     /**
-     * @return string|null
-     */
-    public function __toString(): ?string
-    {
-        return $this->getName();
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getName(): ?string
-    {
-        return $this->getTranslation()->getName();
-    }
-
-    /**
-     * @param string|null $name
-     */
-    public function setName(?string $name): void
-    {
-        $this->getTranslation()->setName($name);
-    }
-
-    /**
      * @param null|string $locale
      *
      * @return TranslationInterface

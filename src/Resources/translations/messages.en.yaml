@@ -12,7 +12,7 @@ asdoria:
         new_pictogram_group: New pictogram group
         edit_pictogram_group: Modify ictogram group
         edit_pictogram: Modify pictogram
-        manage_pictograms: Modify Pictograms
+        manage_pictograms: Managing Pictograms
     form:
         pictogram:
             main_image: Main image

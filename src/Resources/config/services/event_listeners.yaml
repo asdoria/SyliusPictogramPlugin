@@ -1,6 +1,6 @@
 services:
     asdoria.listener.pictograms_upload:
-        parent: sylius.listener.images_upload
+        parent: sylius.listener.avatar_upload
         autowire: true
         autoconfigure: false
         public: false

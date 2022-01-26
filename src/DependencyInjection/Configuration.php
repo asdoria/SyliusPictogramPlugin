@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Asdoria\SyliusPictogramPlugin\DependencyInjection;
 
 use Asdoria\SyliusPictogramPlugin\Controller\PictogramController;
+use Asdoria\SyliusPictogramPlugin\Controller\PictogramGroupController;
 use Asdoria\SyliusPictogramPlugin\Entity\Pictogram;
 use Asdoria\SyliusPictogramPlugin\Entity\PictogramGroup;
 use Asdoria\SyliusPictogramPlugin\Entity\PictogramGroupTranslation;
@@ -69,7 +70,7 @@ class Configuration  implements ConfigurationInterface
                                     ->addDefaultsIfNotSet()
                                     ->children()
                                         ->scalarNode('model')->defaultValue(PictogramGroup::class)->cannotBeEmpty()->end()
-                                        ->scalarNode('controller')->defaultValue(ResourceController::class)->cannotBeEmpty()->end()
+                                        ->scalarNode('controller')->defaultValue(PictogramGroupController::class)->cannotBeEmpty()->end()
                                         ->scalarNode('repository')->defaultValue(PictogramGroupRepository::class)->end()
                                         ->scalarNode('factory')->defaultValue(Factory::class)->end()
                                         ->scalarNode('form')->defaultValue(PictogramGroupType::class)->cannotBeEmpty()->end()

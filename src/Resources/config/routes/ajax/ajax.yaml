@@ -1,3 +1,7 @@
 sylius_admin_ajax_pictogram:
     resource: "pictogram.yaml"
-    prefix: /pictograms/app
+    prefix: pictograms/
+
+sylius_admin_ajax_pictogram_group:
+    resource: "pictogram-group.yaml"
+    prefix: pictogram-groups/

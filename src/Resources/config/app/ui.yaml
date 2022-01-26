@@ -32,7 +32,11 @@ sylius_ui:
                     template: "@AsdoriaSyliusPictogramPlugin/Admin/_javascripts.html.twig"
                     priority: 10
 
-
+        asdoria.admin.pictogram_group.index.javascripts:
+            blocks:
+                asdoria_pictogram_groups_javascripts:
+                    template: "@AsdoriaSyliusPictogramPlugin/Admin/_javascripts.html.twig"
+                    priority: 10
 
         sylius.shop.product.show.content:
             blocks:

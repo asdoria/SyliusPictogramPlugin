@@ -1,5 +1,7 @@
-import './sylius-move-product-variant';
+import './sylius-move-pictograms';
+import './sylius-move-pictogram-groups';
 
 document.addEventListener('DOMContentLoaded', () => {
-  $('.asdoria-update-pictogram').movePictograms($('.asdoria-pictogram-position'));
+  $('.asdoria-update-pictograms').movePictograms($('.asdoria-pictogram-position'));
+  $('.asdoria-update-pictogram-groups').movePictogramGroups($('.asdoria-pictogram-group-position'));
 });

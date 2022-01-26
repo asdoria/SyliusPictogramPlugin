@@ -3,8 +3,9 @@ declare(strict_types=1);
 
 namespace Asdoria\SyliusPictogramPlugin\Controller;
 
-use Asdoria\SyliusPictogramPlugin\Model\PictogramInterface;
+use Asdoria\SyliusPictogramPlugin\Model\PictogramGroupInterface;
 use Sylius\Bundle\ResourceBundle\Controller\ResourceController;
+use Sylius\Component\Core\Model\ProductVariantInterface;
 use Sylius\Component\Resource\ResourceActions;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,7 +18,7 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
  *
  * @author  Hugo Duval <hugo.duval@asdoria.com>
  */
-class PictogramController extends ResourceController
+class PictogramGroupController extends ResourceController
 {
     /**
      * @throws HttpException
@@ -26,24 +27,24 @@ class PictogramController extends ResourceController
     {
         $configuration = $this->requestConfigurationFactory->create($this->metadata, $request);
         $this->isGrantedOr403($configuration, ResourceActions::UPDATE);
-        $pictogramsToUpdate = $request->get('pictograms');
+        $pictogramGroupsToUpdate = $request->get('pictogramGroups');
 
-        if ($configuration->isCsrfProtectionEnabled() && !$this->isCsrfTokenValid('update-pictogram-position', $request->request->get('_csrf_token'))) {
+        if ($configuration->isCsrfProtectionEnabled() && !$this->isCsrfTokenValid('update-pictogram-group-position', $request->request->get('_csrf_token'))) {
             throw new HttpException(Response::HTTP_FORBIDDEN, 'Invalid csrf token.');
         }
 
-        if (in_array($request->getMethod(), ['POST', 'PUT', 'PATCH'], true) && null !== $pictogramsToUpdate) {
-            foreach ($pictogramsToUpdate as $pictogramToUpdate) {
-                if (!is_numeric($pictogramToUpdate['position'])) {
+        if (in_array($request->getMethod(), ['POST', 'PUT', 'PATCH'], true) && null !== $pictogramGroupsToUpdate) {
+            foreach ($pictogramGroupsToUpdate as $pictogramGroupToUpdate) {
+                if (!is_numeric($pictogramGroupToUpdate['position'])) {
                     throw new HttpException(
                         Response::HTTP_NOT_ACCEPTABLE,
-                        sprintf('The pictogram position "%s" is invalid.', $pictogramToUpdate['position'])
+                        sprintf('The pictogramGroup position "%s" is invalid.', $pictogramGroupToUpdate['position'])
                     );
                 }
 
-                /** @var PictogramInterface $pictogram */
-                $pictogram = $this->repository->findOneBy(['id' => $pictogramToUpdate['id']]);
-                $pictogram->setPosition((int) $pictogramToUpdate['position']);
+                /** @var PictogramGroupInterface $pictogramGroup */
+                $pictogramGroup = $this->repository->findOneBy(['id' => $pictogramGroupToUpdate['id']]);
+                $pictogramGroup->setPosition((int) $pictogramGroupToUpdate['position']);
                 $this->manager->flush();
             }
         }

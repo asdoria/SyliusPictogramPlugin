@@ -1,11 +1,8 @@
 {
     "name": "asdoria/sylius-pictogram-plugin",
     "type": "sylius-plugin",
-    "description": "Pictogram Bundle for Asdoria",
-    "keywords": [
-        "sylius",
-        "sylius-plugin"
-    ],
+    "description": "A Pictogram plugin for Sylius",
+    "keywords": ["asdoria", "sylius", "sylius-plugin", "monofony", "pictogram"],
     "authors": [
         {
             "name": "Asdoria",
@@ -53,9 +50,10 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "1.10-dev"
+            "dev-master": "0.1.0-dev"
         }
     },
+    "prefer-stable": true,
     "autoload": {
         "psr-4": {
             "Asdoria\\SyliusPictogramPlugin\\": "src/"
@@ -75,6 +73,10 @@
         ],
         "post-create-project-cmd": [
             "php bin/create_node_symlink.php"
-        ]
+        ],
+        "auto-scripts": {
+            "cache:clear": "symfony-cmd",
+            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+        }
     }
 }

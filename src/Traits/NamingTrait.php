@@ -15,7 +15,7 @@ trait NamingTrait
     /**
      * @var string|null
      */
-    protected ?string $name;
+    protected ?string $name =null;
 
     /**
      * @return string|null

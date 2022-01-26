@@ -23,11 +23,6 @@ interface PictogramGroupInterface extends ResourceInterface, PictogramsAwareInte
     public function getName(): ?string;
 
     /**
-     * @param string|null $name
-     */
-    public function setName(?string $name): void;
-
-    /**
      * @return int|null
      */
     public function getPosition(): ?int;

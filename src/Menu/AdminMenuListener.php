@@ -40,7 +40,7 @@ final class AdminMenuListener
             ->addChild('pictogram_groups', [
                 'route' => 'asdoria_admin_pictogram_group_index',
             ])
-            ->setLabel('asdoria.ui.pictogram_groups')
+            ->setLabel('asdoria.menu.admin.main.pictogram_groups.header')
             ->setLabelAttribute('icon', 'building');
     }
 }

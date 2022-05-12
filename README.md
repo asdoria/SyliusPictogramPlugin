@@ -33,21 +33,10 @@ Toggling the pictograms to display for a product
 
 ## Installation
 
----
-1. Add the repository to composer.json
-
-```JSON
-"repositories": [
-    {
-        "type": "git",
-        "url": "https://github.com/asdoria/AsdoriaSyliusPictogramPlugin.git"
-    }
-],
-```
-2. run `composer require asdoria/sylius-pictogram-plugin`
+1. run `composer require asdoria/sylius-pictogram-plugin`
 
 
-3. Add the bundle in `config/bundles.php`. You must put it ABOVE `SyliusGridBundle`
+2. Go into `config/bundles.php`. You must put the Pictogram plugin line ABOVE `SyliusGridBundle`
 
 ```PHP
 Asdoria\SyliusPictogramPlugin\AsdoriaSyliusPictogramPlugin::class => ['all' => true],
@@ -55,7 +44,7 @@ Asdoria\SyliusPictogramPlugin\AsdoriaSyliusPictogramPlugin::class => ['all' => t
 Sylius\Bundle\GridBundle\SyliusGridBundle::class => ['all' => true],
 ```
 
-4. Import routes in `config/routes.yaml`
+3. Import routes in `config/routes.yaml`
 
 ```yaml
 asdoria_pictogram:
@@ -63,12 +52,12 @@ asdoria_pictogram:
     prefix: /admin
 ```
 
-5. Import config in `config/packages/_sylius.yaml`
+4. Import config in `config/packages/_sylius.yaml`
 ```yaml
 imports:
     - { resource: "@AsdoriaSyliusPictogramPlugin/Resources/config/config.yaml"}
 ```
-6. In `src/Entity/Product/Product.php`. Import `Asdoria\SyliusPictogramPlugin\Traits\PictogramsTrait` and initialize a pictogram collection in the constructor
+5. In `src/Entity/Product/Product.php`. Import `Asdoria\SyliusPictogramPlugin\Traits\PictogramsTrait` and initialize a pictogram collection in the constructor
 
 ```PHP
 

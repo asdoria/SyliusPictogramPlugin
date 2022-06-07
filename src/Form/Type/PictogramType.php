@@ -10,8 +10,6 @@ use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Sylius\Bundle\ResourceBundle\Form\Type\ResourceTranslationsType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Validator\Constraints\NotBlank;
-use Symfony\Component\Validator\Constraints\Valid;
 
 /**
  * Class PictogramType

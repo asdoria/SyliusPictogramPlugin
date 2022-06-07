@@ -1,0 +1,18 @@
+Asdoria\SyliusPictogramPlugin\Entity\Pictogram:
+    constraints:
+        -   Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+                fields: [ code ]
+                groups: [ sylius ]
+                message: 'asdoria.ui.pictogram_group.code.unique'
+    properties:
+        code:
+            -   NotBlank:
+                    groups: [ sylius ]
+                    message: 'asdoria.ui.pictogram_group.code.not_blank'
+        pictogramGroup:
+            -   NotBlank:
+                    groups: [ sylius ]
+                    message: 'asdoria.ui.pictogram.group.not_blank'
+        image:
+            -   Valid:
+                    groups: [ sylius ]

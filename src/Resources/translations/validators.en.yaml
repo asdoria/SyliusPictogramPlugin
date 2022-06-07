@@ -1,0 +1,18 @@
+asdoria:
+    ui:
+        pictogram:
+            group:
+                not_blank: A pictogram must be linked to a group.
+            image:
+                not_blank: A pictogram must have an image to illustrate himself.
+        pictogram_group:
+            code:
+                unique: This code is already taken.
+                not_blank: The "Code" field can not be empty.
+        pictogram_group_translation:
+            name:
+                unique: The name is already taken.
+                not_blank: The "Name" field can not be empty.
+        image:
+            path:
+                not_blank: You must upload an image.

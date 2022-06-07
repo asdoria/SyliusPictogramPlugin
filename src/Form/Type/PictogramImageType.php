@@ -7,6 +7,8 @@ namespace Asdoria\SyliusPictogramPlugin\Form\Type;
 use Sylius\Bundle\CoreBundle\Form\Type\ImageType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Valid;
 
 /**
  * Class PictogramImageType

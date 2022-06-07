@@ -10,6 +10,8 @@ use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Sylius\Bundle\ResourceBundle\Form\Type\ResourceTranslationsType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Valid;
 
 /**
  * Class PictogramType
@@ -34,7 +36,7 @@ class PictogramType extends AbstractResourceType
             ])
             ->add('image', PictogramImageType::class, [
                 'label'      => 'asdoria.form.pictogram.main_image',
-                'data_class' => PictogramImage::class
+                'data_class' => PictogramImage::class,
             ]);
     }
 

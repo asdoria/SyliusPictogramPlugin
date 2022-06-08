@@ -1,0 +1,18 @@
+asdoria:
+    ui:
+        pictogram:
+            group:
+                not_blank: Un pictogramme doit être lié à un groupe.
+            image:
+                not_blank: Un pictogramme doit avoir une image d'illustration.
+        pictogram_group:
+            code:
+                unique: Ce code existe déjà.
+                not_blank: Ce champs ne peut pas être vide.
+        pictogram_group_translation:
+            name:
+                unique: Ce nom est déjà pris.
+                not_blank: Ce champs ne peut pas être vide.
+        image:
+            path:
+                not_blank: Vous devez choisir une image.

@@ -34,7 +34,7 @@ class PictogramType extends AbstractResourceType
             ])
             ->add('image', PictogramImageType::class, [
                 'label'      => 'asdoria.form.pictogram.main_image',
-                'data_class' => PictogramImage::class
+                'data_class' => PictogramImage::class,
             ]);
     }
 

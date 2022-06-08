@@ -1,0 +1,11 @@
+Asdoria\SyliusPictogramPlugin\Entity\PictogramGroupTranslation:
+    constraints:
+        -   Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+                fields: [ name ]
+                groups: [ sylius ]
+                message: 'asdoria.ui.pictogram_group.name.unique'
+    properties:
+        name:
+            -   NotBlank:
+                    groups: [ sylius ]
+                    message: 'asdoria.ui.pictogram_group_translation.name.not_blank'                               

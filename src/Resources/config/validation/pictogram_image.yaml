@@ -1,0 +1,6 @@
+Asdoria\SyliusPictogramPlugin\Entity\PictogramImage:
+    properties:
+        file:
+            - NotBlank:
+                  groups: [ sylius ]
+                  message: 'asdoria.ui.image.path.not_blank'

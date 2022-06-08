@@ -10,8 +10,8 @@ asdoria:
         pictogram_group: Pictogram Group
         new_pictogram: New Pictogram
         new_pictogram_group: New pictogram group
-        edit_pictogram_group: Modify ictogram group
-        edit_pictogram: Modify pictogram
+        edit_pictogram_group: Edit pictogram group
+        edit_pictogram: Edit pictogram
         manage_pictograms: Managing Pictograms
     form:
         pictogram:

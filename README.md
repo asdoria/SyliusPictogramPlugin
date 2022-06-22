@@ -89,6 +89,8 @@ If you want to try to create pictograms, go on [the admin authentication page](h
 > 
 Then go on ["Pictograms Groups" in the back office](https://demo-sylius.asdoria.fr/admin/pictogram-groups/) and follow usage lines below.
 
+Note that we have developed several other open source plugins for Sylius, whose demos and documentation are listed on the [following page](https://asdoria.github.io/).
+
 ## Usage
 
 1. In the back office, under `Catalog`, enter `Pictogram Groups`. Create a group using a unique code

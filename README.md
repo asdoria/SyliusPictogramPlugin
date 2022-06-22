@@ -27,10 +27,6 @@ Toggling the pictograms to display for a product
 
 </div>
 
-
-
-
-
 ## Installation
 
 1. run `composer require asdoria/sylius-pictogram-plugin`
@@ -83,6 +79,15 @@ class Product extends BaseProduct
 }
 ```
 7. run `php bin/console do:mi:mi` to update the database schema
+
+## Demo
+
+You can see the result for the user here with a cap: [here](https://demo-sylius.asdoria.fr/en_US/products/knitted-wool-blend-green-cap). <br>
+If you want to try to create pictograms, go on [the admin authentication page](https://demo-sylius.asdoria.fr/admin/) and connect with:
+> **Login:** asdoria <br>
+> **Password:** asdoria
+> 
+Then go on ["Pictograms Groups" in the back office](https://demo-sylius.asdoria.fr/admin/pictogram-groups/) and follow usage lines below.
 
 ## Usage
 

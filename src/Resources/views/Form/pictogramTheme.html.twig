@@ -2,7 +2,6 @@
 
 
 {% block pictogram_choice_widget -%}
-    {% spaceless %}
     <div {{ block('widget_container_attributes') }}>
         {% for group_label, group in choices %}
         {%- if group is iterable -%}
@@ -50,5 +49,4 @@
         {%- endif -%}
     {% endfor %}
     </div>
-    {% endspaceless %}
 {%- endblock pictogram_choice_widget %}

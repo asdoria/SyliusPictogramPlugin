@@ -2,7 +2,7 @@ asdoria_admin_pictogram_group_pictograms_index:
     path: /pictogram-groups/{pictogramGroupId}/pictograms
     methods: [GET]
     defaults:
-        _controller: asdoria.controller.pictogram:indexAction
+        _controller: asdoria.controller.pictogram::indexAction
         _sylius:
             grid: asdoria_admin_pictogram_group_pictograms
             vars:
@@ -19,7 +19,7 @@ asdoria_admin_pictogram_group_pictograms_create:
     path: /pictogram-groups/{pictogramGroupId}/pictograms/new
     methods: [GET, POST]
     defaults:
-        _controller: asdoria.controller.pictogram:createAction
+        _controller: asdoria.controller.pictogram::createAction
         _sylius:
             redirect:
                 route: asdoria_admin_pictogram_group_pictograms_index
@@ -48,7 +48,7 @@ asdoria_admin_pictogram_group_pictograms_update:
     path: /pictogram-groups/{pictogramGroupId}/pictograms/{id}/edit
     methods: [GET, PUT]
     defaults:
-        _controller: asdoria.controller.pictogram:updateAction
+        _controller: asdoria.controller.pictogram::updateAction
         _sylius:
             redirect:
                 route: asdoria_admin_pictogram_group_pictograms_index
@@ -74,7 +74,7 @@ asdoria_admin_pictogram_group_pictograms_delete:
     path: /pictogram-groups/{pictogramGroupId}/pictograms/{id}
     methods: [DELETE]
     defaults:
-        _controller: asdoria.controller.pictogram:deleteAction
+        _controller: asdoria.controller.pictogram::deleteAction
         _sylius:
             redirect:
                 route: asdoria_admin_pictogram_group_pictograms_index

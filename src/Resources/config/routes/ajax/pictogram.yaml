@@ -2,7 +2,7 @@ asdoria_admin_ajax_pictogram_by_phrase:
     path: /search
     methods: [GET]
     defaults:
-        _controller: asdoria.controller.pictogram:indexAction
+        _controller: asdoria.controller.pictogram::indexAction
         _format: json
         _sylius:
             serialization_groups: [Autocomplete]
@@ -17,7 +17,7 @@ asdoria_admin_ajax_pictogram_by_ids:
     path: /
     methods: [GET]
     defaults:
-        _controller: asdoria.controller.pictogram:indexAction
+        _controller: asdoria.controller.pictogram::indexAction
         _format: json
         _sylius:
             serialization_groups: [Autocomplete]
@@ -30,7 +30,7 @@ asdoria_admin_ajax_pictogram_search:
     path: /find
     methods: [GET]
     defaults:
-        _controller: asdoria.controller.pictogram:indexAction
+        _controller: asdoria.controller.pictogram::indexAction
         _format: json
         _sylius:
             permission: true
@@ -40,7 +40,7 @@ asdoria_admin_ajax_pictograms_update_position:
     path: /update
     methods: [PUT]
     defaults:
-        _controller: asdoria.controller.pictogram:updatePositionsAction
+        _controller: asdoria.controller.pictogram::updatePositionsAction
         _format: json
         _sylius:
             permission: true

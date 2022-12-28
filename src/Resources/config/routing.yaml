@@ -1,9 +1,6 @@
 asdoria_admin_pictogram_group:
     resource: "routes/pictogram_group.yaml"
 
-sylius_admin_pictogram:
-    resource: "routes/pictogram.yaml"
-
 sylius_admin_ajax:
     resource: "routes/ajax/ajax.yaml"
     prefix: /ajax
